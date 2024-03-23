@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://t2l6p3qd6bng"]
+[gd_scene load_steps=31 format=3 uid="uid://t2l6p3qd6bng"]
 
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="1_a22ab"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nb1fb"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dh16ftr5kdhw7" path="res://player.tscn" id="2_xmnpl"]
 [ext_resource type="Script" path="res://scripts/PongBall.gd" id="4_iwj5o"]
 [ext_resource type="Texture2D" uid="uid://cumumvjqtw6o4" path="res://Assets/Art/floor.png" id="6_c4t07"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="8_28kvs"]
+[ext_resource type="PackedScene" uid="uid://ci5w3xr1xcqlc" path="res://enemy_1.tscn" id="9_dd512"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jde7"]
 size = Vector2(21, 144)
@@ -15,7 +17,7 @@ size = Vector2(21, 144)
 size = Vector2(21, 145.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4j1k"]
-size = Vector2(984, 62)
+size = Vector2(984, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk4k6"]
 size = Vector2(50, 634)
@@ -72,14 +74,32 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu23h"]
+size = Vector2(56, 56)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3owwn"]
-size = Vector2(1096, 20)
+size = Vector2(1344, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmgrv"]
+size = Vector2(52, 513)
 
 [sub_resource type="SystemFont" id="SystemFont_aeg3y"]
-font_names = PackedStringArray("Comic Sans MS")
+font_names = PackedStringArray("Baskerville Old Face")
 
 [sub_resource type="Theme" id="Theme_vo2u3"]
 default_font = SubResource("SystemFont_aeg3y")
+
+[sub_resource type="SystemFont" id="SystemFont_4117l"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_cllud"]
+default_font = SubResource("SystemFont_4117l")
+
+[sub_resource type="SystemFont" id="SystemFont_cgrwp"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_pjhri"]
+default_font = SubResource("SystemFont_cgrwp")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_nb1fb")
@@ -88,19 +108,19 @@ script = ExtResource("1_nb1fb")
 scale = Vector2(2, 2)
 
 [node name="Sprite2D13" type="TextureRect" parent="bg"]
-offset_left = -13.0
-offset_top = -21.0
-offset_right = 232.0
-offset_bottom = 124.0
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 243.0
+offset_bottom = 127.0
 scale = Vector2(2, 2)
 texture = ExtResource("2_gdwgy")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="bg"]
 offset_left = -26.0
-offset_top = -26.0
+offset_top = -24.5
 offset_right = 513.0
-offset_bottom = 288.0
+offset_bottom = 289.5
 color = Color(0, 0, 0, 0.662745)
 
 [node name="Sprite2D" type="Sprite2D" parent="bg"]
@@ -172,6 +192,7 @@ position = Vector2(0, 10)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_o6mqf")
+metadata/_edit_group_ = true
 
 [node name="top2" type="Sprite2D" parent="leftPaddle"]
 position = Vector2(0, 24)
@@ -205,10 +226,11 @@ position = Vector2(13, 72)
 shape = SubResource("RectangleShape2D_1jde7")
 
 [node name="rightPaddle" type="Area2D" parent="."]
-position = Vector2(948, 180)
+position = Vector2(960, 180)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_o6mqf")
+metadata/_edit_group_ = true
 
 [node name="top2" type="Sprite2D" parent="rightPaddle"]
 position = Vector2(0, 24)
@@ -244,11 +266,9 @@ frame = 4
 position = Vector2(-13, 72.25)
 shape = SubResource("RectangleShape2D_i3icu")
 
-[node name="player" parent="." instance=ExtResource("2_xmnpl")]
-position = Vector2(453, 447)
-
 [node name="floor" type="Area2D" parent="."]
-position = Vector2(482, 509)
+visible = false
+position = Vector2(484, 465)
 collision_layer = 2
 collision_mask = 2
 metadata/_edit_group_ = true
@@ -264,14 +284,15 @@ metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="top"]
 offset_left = -485.0
-offset_top = -2.0
+offset_top = 16.0
 offset_right = 31.0
-offset_bottom = 14.0
+offset_bottom = 32.0
 scale = Vector2(2, 2)
 texture = ExtResource("6_c4t07")
 stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="top"]
+position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_i4j1k")
 
 [node name="wall-L" type="Area2D" parent="."]
@@ -293,24 +314,30 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_sk4k6")
 
 [node name="PongBall" type="CharacterBody2D" parent="."]
-position = Vector2(478, 234)
-collision_layer = 2
-collision_mask = 2
+position = Vector2(457, 159)
+collision_layer = 10
+collision_mask = 10
 script = ExtResource("4_iwj5o")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PongBall"]
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_ojvuw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PongBall"]
-position = Vector2(-1.86265e-05, 2.38419e-07)
+position = Vector2(-3.05176e-05, 0)
 scale = Vector2(3.75, 3.75)
 sprite_frames = SubResource("SpriteFrames_o1b4w")
 autoplay = "default"
 frame_progress = 0.551624
 
+[node name="characterArea2D" type="Area2D" parent="PongBall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PongBall/characterArea2D"]
+shape = SubResource("RectangleShape2D_wu23h")
+
 [node name="playerFloor" type="StaticBody2D" parent="."]
-position = Vector2(463, 488)
+position = Vector2(465, 444)
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="playerFloor"]
@@ -322,9 +349,21 @@ scale = Vector2(2, 2)
 texture = ExtResource("6_c4t07")
 stretch_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="playerFloor"]
-position = Vector2(10, 0)
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="playerFloor"]
+position = Vector2(37, -456)
 shape = SubResource("RectangleShape2D_3owwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerFloor"]
+position = Vector2(39, 0)
+shape = SubResource("RectangleShape2D_3owwn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="playerFloor"]
+position = Vector2(490, -244.5)
+shape = SubResource("RectangleShape2D_wmgrv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="playerFloor"]
+position = Vector2(-462.5, -248.5)
+shape = SubResource("RectangleShape2D_wmgrv")
 
 [node name="score-L" type="RichTextLabel" parent="."]
 offset_left = 380.0
@@ -333,7 +372,7 @@ offset_right = 460.0
 offset_bottom = 100.0
 theme = SubResource("Theme_vo2u3")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
-theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/normal_font_size = 64
 text = "0"
 
 [node name="score-R" type="RichTextLabel" parent="."]
@@ -343,7 +382,213 @@ offset_right = 580.0
 offset_bottom = 100.0
 theme = SubResource("Theme_vo2u3")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
-theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/normal_font_size = 64
+text = "0"
+
+[node name="player" parent="." instance=ExtResource("2_xmnpl")]
+position = Vector2(454, 400)
+
+[node name="spawneR" type="Node2D" parent="."]
+position = Vector2(1107, 411)
+script = ExtResource("8_28kvs")
+items = Array[PackedScene]([ExtResource("9_dd512")])
+
+[node name="Timer" type="Timer" parent="spawneR"]
+wait_time = 10.0
+autostart = true
+
+[node name="spawnerL" type="Node2D" parent="."]
+position = Vector2(-123, 411)
+script = ExtResource("8_28kvs")
+items = Array[PackedScene]([ExtResource("9_dd512")])
+
+[node name="Timer" type="Timer" parent="spawnerL"]
+wait_time = 8.0
+autostart = true
+
+[node name="Health Bar" type="Node2D" parent="."]
+position = Vector2(446, 485)
+
+[node name="Name" type="RichTextLabel" parent="Health Bar"]
+offset_left = -10.0
+offset_top = -18.0
+offset_right = 534.0
+offset_bottom = 27.0
+theme = SubResource("Theme_cllud")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "Pong - The Persistent Parallelogram"
+
+[node name="bar" type="ColorRect" parent="Health Bar"]
+offset_left = -9.0
+offset_top = 21.0
+offset_right = 491.0
+offset_bottom = 46.0
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Health Bar"]
+position = Vector2(0, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 24
+frame = 76
+
+[node name="Sprite2D5" type="Sprite2D" parent="Health Bar"]
+position = Vector2(0, 47)
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 24
+frame = 124
+
+[node name="Sprite2D4" type="Sprite2D" parent="Health Bar"]
+position = Vector2(482, 23)
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 24
+frame = 79
+
+[node name="Sprite2D6" type="Sprite2D" parent="Health Bar"]
+position = Vector2(482, 47)
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 24
+frame = 127
+
+[node name="Sprite2D" type="Sprite2D" parent="Health Bar"]
+position = Vector2(247, 35)
+scale = Vector2(28, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 45
+
+[node name="Sprite2D2" type="Sprite2D" parent="Health Bar"]
+position = Vector2(242, 35)
+scale = Vector2(27.25, 3)
+texture = ExtResource("1_a22ab")
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 45
+
+[node name="playerHealth" type="Node2D" parent="."]
+position = Vector2(25, 505)
+metadata/_edit_group_ = true
+
+[node name="heart1" type="Sprite2D" parent="playerHealth"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 42
+
+[node name="heart2" type="Sprite2D" parent="playerHealth"]
+position = Vector2(46, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 42
+
+[node name="heart3" type="Sprite2D" parent="playerHealth"]
+position = Vector2(92, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 42
+
+[node name="bullets" type="Node2D" parent="."]
+position = Vector2(165, 505)
+metadata/_edit_group_ = true
+
+[node name="bullet1" type="Sprite2D" parent="bullets"]
+rotation = -1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 82
+
+[node name="bullet2" type="Sprite2D" parent="bullets"]
+position = Vector2(34, 0)
+rotation = -1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 82
+
+[node name="bullet3" type="Sprite2D" parent="bullets"]
+position = Vector2(68, 0)
+rotation = -1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 82
+
+[node name="bullet4" type="Sprite2D" parent="bullets"]
+position = Vector2(102, 0)
+rotation = -1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 82
+
+[node name="bullet5" type="Sprite2D" parent="bullets"]
+position = Vector2(136, 0)
+rotation = -1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 82
+
+[node name="abilities" type="Node2D" parent="."]
+position = Vector2(375, 490)
+
+[node name="sword" type="Sprite2D" parent="abilities"]
+position = Vector2(-24, 24)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="swordTime" type="RichTextLabel" parent="abilities/sword"]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 49.0
+offset_bottom = 58.0
+scale = Vector2(0.33, 0.33)
+theme = SubResource("Theme_pjhri")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "0"
+
+[node name="shield" type="Sprite2D" parent="abilities"]
+position = Vector2(24, 24)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_a22ab")
+hframes = 16
+vframes = 12
+frame = 59
+
+[node name="shieldTime" type="RichTextLabel" parent="abilities/shield"]
+offset_left = -8.0
+offset_top = -18.0
+offset_right = 49.0
+offset_bottom = 62.0
+scale = Vector2(0.33, 0.33)
+theme = SubResource("Theme_pjhri")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 32
 text = "0"
 
 [connection signal="body_entered" from="leftPaddle" to="." method="_on_left_paddle_body_entered"]
@@ -352,3 +597,6 @@ text = "0"
 [connection signal="body_entered" from="top" to="." method="_on_top_body_entered"]
 [connection signal="body_entered" from="wall-L" to="." method="_on_wall_l_body_entered"]
 [connection signal="body_entered" from="wall-R" to="." method="_on_wall_r_body_entered"]
+[connection signal="body_entered" from="PongBall/characterArea2D" to="PongBall" method="_on_character_area_2d_body_entered"]
+[connection signal="timeout" from="spawneR/Timer" to="spawneR" method="_on_timer_timeout"]
+[connection signal="timeout" from="spawnerL/Timer" to="spawnerL" method="_on_timer_timeout"]

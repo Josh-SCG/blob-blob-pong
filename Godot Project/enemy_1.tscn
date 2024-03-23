@@ -1,0 +1,105 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci5w3xr1xcqlc"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_x37tn"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_xb2it"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncjo0"]
+atlas = ExtResource("2_xb2it")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nts52"]
+atlas = ExtResource("2_xb2it")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o32e1"]
+atlas = ExtResource("2_xb2it")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nbll"]
+atlas = ExtResource("2_xb2it")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0005h"]
+atlas = ExtResource("2_xb2it")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yobpb"]
+atlas = ExtResource("2_xb2it")
+region = Rect2(112, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_waw38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncjo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nts52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o32e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nbll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0005h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yobpb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv2qx"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3u7n"]
+size = Vector2(30, 30)
+
+[node name="enemy_1" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_x37tn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_waw38")
+autoplay = "default"
+frame_progress = 0.23368
+
+[node name="enemyCollider" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyCollider"]
+shape = SubResource("RectangleShape2D_wv2qx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n3u7n")
+
+[node name="Exclaim" type="Sprite2D" parent="."]
+position = Vector2(0, -42)
+scale = Vector2(2, 2)
+texture = ExtResource("2_xb2it")
+hframes = 16
+vframes = 12
+frame = 76
+
+[node name="bulletTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="deathTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="enemyCollider" to="." method="_on_enemy_collider_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="bulletTimer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

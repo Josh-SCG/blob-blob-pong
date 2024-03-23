@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://beoteukljl7us"]
+
+[ext_resource type="Script" path="res://scripts/Pickup.gd" id="1_jnt4g"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_4d72e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_capgi"]
+size = Vector2(16, 14)
+
+[node name="HealthPickup" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_jnt4g")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-0.5, 1)
+texture = ExtResource("2_4d72e")
+hframes = 16
+vframes = 12
+frame = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_capgi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

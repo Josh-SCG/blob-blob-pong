@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7sar7yuhxo2n"]
+
+[ext_resource type="Script" path="res://scripts/shield.gd" id="1_i7oyt"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_1jnya"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8o1l"]
+radius = 6.0
+height = 28.0
+
+[node name="shield" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 13
+script = ExtResource("1_i7oyt")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+position = Vector2(-4, -16)
+texture = ExtResource("2_1jnya")
+hframes = 32
+vframes = 12
+frame = 174
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites"]
+position = Vector2(4, -16)
+texture = ExtResource("2_1jnya")
+flip_h = true
+hframes = 32
+vframes = 12
+frame = 174
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(16, 0)
+rotation = 1.5708
+texture = ExtResource("2_1jnya")
+hframes = 16
+vframes = 12
+frame = 87
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+position = Vector2(-16, 0)
+rotation = -1.5708
+texture = ExtResource("2_1jnya")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 87
+
+[node name="shield_Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shield_Area2D"]
+position = Vector2(-17, -3)
+shape = SubResource("CapsuleShape2D_e8o1l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="shield_Area2D"]
+position = Vector2(17, -4)
+shape = SubResource("CapsuleShape2D_e8o1l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="shield_Area2D"]
+position = Vector2(0, -17)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e8o1l")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 8)
+polygon = PackedVector2Array(-21, 0, -22, -21, -10, -30, 9, -30, 22, -20, 21, 0, 11, 0, 11, -20, 0, -23, -11, -21, -11, -6.05712, -11, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="shield_Area2D" to="." method="_on_shield_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

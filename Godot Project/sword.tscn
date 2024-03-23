@@ -1,0 +1,150 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx8ndcx54gcdv"]
+
+[ext_resource type="Script" path="res://scripts/sword.gd" id="1_cot5g"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_ura1j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bio7y"]
+radius = 13.435
+height = 29.6985
+
+[node name="sword" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 13
+collision_priority = 3.0
+script = ExtResource("1_cot5g")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+position = Vector2(16, -16)
+texture = ExtResource("2_ura1j")
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(16, 16)
+texture = ExtResource("2_ura1j")
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
+position = Vector2(-16, -16)
+texture = ExtResource("2_ura1j")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprites"]
+position = Vector2(-16, 16)
+texture = ExtResource("2_ura1j")
+flip_h = true
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprites"]
+position = Vector2(-24, 0)
+rotation = 0.785398
+scale = Vector2(1, 1)
+texture = ExtResource("2_ura1j")
+flip_h = true
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprites"]
+position = Vector2(24, 0)
+rotation = 0.785398
+scale = Vector2(1, 1)
+texture = ExtResource("2_ura1j")
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 24)
+rotation = 2.35619
+scale = Vector2(1, 1)
+texture = ExtResource("2_ura1j")
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -24)
+rotation = 2.35619
+scale = Vector2(1, 1)
+texture = ExtResource("2_ura1j")
+flip_h = true
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="sword_Area2D" type="Area2D" parent="."]
+position = Vector2(16, -16)
+collision_layer = 4
+collision_mask = 12
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(0, 32)
+rotation = -0.785398
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(-32, 0)
+rotation = -0.785398
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(-32, 32)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(-16, 40)
+rotation = 3.14159
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(8, 16)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(-16, -8)
+rotation = 3.14159
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="sword_Area2D"]
+position = Vector2(-40, 16)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sword_Area2D"]
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_bio7y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(26, -26, 38, 0, 26, 26, 0, 38, -26, 26, -38, 0, -26, -26, 0, -38, 26, -26, 9, -10, 0, -15, -10, -10, -15, 0, -10, 10, 0, 15, 10, 10, 15, 0, 10, -10)
+
+[connection signal="body_entered" from="sword_Area2D" to="." method="_on_sword_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
