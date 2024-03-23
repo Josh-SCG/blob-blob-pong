@@ -1,0 +1,408 @@
+[gd_scene load_steps=15 format=3 uid="uid://bfoc4r7i53fv5"]
+
+[ext_resource type="Script" path="res://scripts/controls.gd" id="1_8cn8y"]
+[ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_ewqox"]
+[ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="3_nwoky"]
+[ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="4_wid50"]
+[ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="5_hc7l0"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="7_fctep"]
+[ext_resource type="Texture2D" uid="uid://d2mex0rui2sgg" path="res://Assets/Art/UI/tilemap_white_packed.png" id="7_jhacj"]
+[ext_resource type="Texture2D" uid="uid://3gjatyootgqj" path="res://Assets/Art/UI/play_normal.png" id="8_nonxq"]
+[ext_resource type="Texture2D" uid="uid://bd3rr4vjod1he" path="res://Assets/Art/UI/play_pressed.png" id="9_avshx"]
+[ext_resource type="Texture2D" uid="uid://ytvb0bdm4ouq" path="res://Assets/Art/UI/play_hover.png" id="10_exami"]
+
+[sub_resource type="SystemFont" id="SystemFont_s8fub"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_ik3kx"]
+default_font = SubResource("SystemFont_s8fub")
+
+[sub_resource type="SystemFont" id="SystemFont_4117l"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_12hrf"]
+default_font = SubResource("SystemFont_4117l")
+
+[node name="controls" type="Node2D"]
+script = ExtResource("1_8cn8y")
+
+[node name="bg" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D13" type="TextureRect" parent="bg"]
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 243.0
+offset_bottom = 127.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_ewqox")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+offset_left = -26.0
+offset_top = -30.0
+offset_right = 513.0
+offset_bottom = 284.0
+color = Color(0, 0, 0, 0.662745)
+
+[node name="Name" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 300.0
+offset_top = 20.0
+offset_right = 700.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_ik3kx")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Controls"
+
+[node name="menu" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_nwoky")
+texture_pressed = ExtResource("4_wid50")
+texture_hover = ExtResource("5_hc7l0")
+
+[node name="controlInfoBox" type="Node2D" parent="."]
+position = Vector2(514, 300)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="controlInfoBox"]
+offset_left = -347.0
+offset_top = -166.0
+offset_right = 241.0
+offset_bottom = -95.0
+mouse_filter = 2
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="controlInfoBox"]
+offset_left = -370.0
+offset_top = -85.0
+offset_right = 359.0
+offset_bottom = 195.0
+mouse_filter = 2
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="controlName" type="RichTextLabel" parent="controlInfoBox"]
+offset_left = -335.0
+offset_top = -159.0
+offset_right = 290.0
+offset_bottom = -93.0
+mouse_filter = 2
+theme = SubResource("Theme_12hrf")
+theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "The What"
+
+[node name="controlInfo" type="RichTextLabel" parent="controlInfoBox"]
+offset_left = -366.0
+offset_top = -74.0
+offset_right = 351.0
+offset_bottom = 151.0
+mouse_filter = 2
+theme = SubResource("Theme_12hrf")
+theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_font_sizes/normal_font_size = 38
+text = "How to do the what"
+
+[node name="pageNum" type="RichTextLabel" parent="controlInfoBox"]
+offset_left = 296.0
+offset_top = 154.0
+offset_right = 372.0
+offset_bottom = 220.0
+mouse_filter = 2
+theme = SubResource("Theme_12hrf")
+theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "1/6"
+
+[node name="Sprite2D" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-327, -144)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 44
+
+[node name="Sprite2D2" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(221, -144)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 47
+
+[node name="Sprite2D5" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-355, -69)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 44
+
+[node name="Sprite2D6" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(342, -69)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 47
+
+[node name="Sprite2D3" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-52.5001, -144)
+scale = Vector2(29.5625, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 45
+
+[node name="Sprite2D4" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-5.00003, -69)
+scale = Vector2(38.75, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 45
+
+[node name="Sprite2D7" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-355, 171)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 60
+
+[node name="Sprite2D9" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-6.00003, 171)
+scale = Vector2(38.625, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 61
+
+[node name="Sprite2D11" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(342, 51)
+rotation = -1.5708
+scale = Vector2(10, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 61
+
+[node name="Sprite2D12" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(-355, 51)
+rotation = 1.5708
+scale = Vector2(10, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 61
+
+[node name="Sprite2D8" type="Sprite2D" parent="controlInfoBox"]
+position = Vector2(342, 171)
+scale = Vector2(5, 5)
+texture = ExtResource("7_fctep")
+hframes = 16
+vframes = 12
+frame = 63
+
+[node name="movement" type="Node2D" parent="."]
+position = Vector2(867, 116)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="movement"]
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 86
+
+[node name="Sprite2D2" type="Sprite2D" parent="movement"]
+position = Vector2(-32, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 120
+
+[node name="Sprite2D3" type="Sprite2D" parent="movement"]
+position = Vector2(32, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 122
+
+[node name="Sprite2D4" type="Sprite2D" parent="movement"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 166
+
+[node name="Sprite2D5" type="Sprite2D" parent="movement"]
+position = Vector2(32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 167
+
+[node name="Sprite2D6" type="Sprite2D" parent="movement"]
+position = Vector2(-32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 169
+
+[node name="Sprite2D7" type="Sprite2D" parent="movement"]
+position = Vector2(-2, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 11
+vframes = 24
+frame = 76
+
+[node name="sword" type="Node2D" parent="."]
+position = Vector2(867, 116)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="sword"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 323
+
+[node name="Sprite2D2" type="Sprite2D" parent="sword"]
+position = Vector2(-32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 51
+
+[node name="Sprite2D3" type="Sprite2D" parent="sword"]
+position = Vector2(32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 77
+
+[node name="shield" type="Node2D" parent="."]
+position = Vector2(867, 116)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="shield"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 324
+
+[node name="Sprite2D2" type="Sprite2D" parent="shield"]
+position = Vector2(-32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 52
+
+[node name="Sprite2D3" type="Sprite2D" parent="shield"]
+position = Vector2(32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 78
+
+[node name="shoot" type="Node2D" parent="."]
+position = Vector2(867, 116)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="shoot"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 325
+
+[node name="Sprite2D2" type="Sprite2D" parent="shoot"]
+position = Vector2(-32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 53
+
+[node name="Sprite2D3" type="Sprite2D" parent="shoot"]
+position = Vector2(32, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 79
+
+[node name="pause" type="Node2D" parent="."]
+position = Vector2(867, 116)
+scale = Vector2(1.5, 1.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="pause"]
+position = Vector2(-16, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 17
+
+[node name="Sprite2D3" type="Sprite2D" parent="pause"]
+position = Vector2(16, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("7_jhacj")
+hframes = 34
+vframes = 24
+frame = 94
+
+[node name="up" type="TextureButton" parent="."]
+offset_left = 30.0
+offset_top = 350.0
+offset_right = 46.0
+offset_bottom = 366.0
+rotation = -1.5708
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_nonxq")
+texture_pressed = ExtResource("9_avshx")
+texture_hover = ExtResource("10_exami")
+
+[node name="down" type="TextureButton" parent="."]
+offset_left = 110.0
+offset_top = 350.0
+offset_right = 126.0
+offset_bottom = 366.0
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_nonxq")
+texture_pressed = ExtResource("9_avshx")
+texture_hover = ExtResource("10_exami")
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="down" to="." method="_on_down_pressed"]

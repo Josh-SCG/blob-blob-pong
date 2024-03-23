@@ -1,3 +1,348 @@
-[gd_scene format=3 uid="uid://bicaatidq84q2"]
+[gd_scene load_steps=22 format=3 uid="uid://bicaatidq84q2"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_8phpd"]
+[ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_a8j4x"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_8dnma"]
+[ext_resource type="Texture2D" uid="uid://3gjatyootgqj" path="res://Assets/Art/UI/play_normal.png" id="3_vt7x8"]
+[ext_resource type="Texture2D" uid="uid://bd3rr4vjod1he" path="res://Assets/Art/UI/play_pressed.png" id="4_gd1me"]
+[ext_resource type="Texture2D" uid="uid://ytvb0bdm4ouq" path="res://Assets/Art/UI/play_hover.png" id="5_24now"]
+[ext_resource type="Texture2D" uid="uid://yvd1idoi8w7k" path="res://Assets/Art/UI/howTo_normal.png" id="6_hs16x"]
+[ext_resource type="Texture2D" uid="uid://cym4425ad7vay" path="res://Assets/Art/UI/howTo_pressed.png" id="7_kbbqa"]
+[ext_resource type="Texture2D" uid="uid://dklj4t275186k" path="res://Assets/Art/UI/howTo_hover.png" id="7_qv01i"]
+[ext_resource type="Texture2D" uid="uid://d2qop2qc4nrss" path="res://Assets/Art/UI/achieve_normal.png" id="8_y6uqe"]
+[ext_resource type="Texture2D" uid="uid://dqndj4odl7s7k" path="res://Assets/Art/UI/achieve_pressed.png" id="9_ojahp"]
+[ext_resource type="Texture2D" uid="uid://dlq1eggrus0rm" path="res://Assets/Art/UI/achieve_hover.png" id="10_j2sn7"]
+[ext_resource type="Texture2D" uid="uid://bdmrtvwlq2af4" path="res://Assets/Art/UI/settings_normal.png" id="13_4hln2"]
+[ext_resource type="Texture2D" uid="uid://gkbkk3l73xxv" path="res://Assets/Art/UI/settings_pressed.png" id="14_l3hby"]
+[ext_resource type="Texture2D" uid="uid://m8xgrlsty3iw" path="res://Assets/Art/UI/settings_hover.png" id="15_7gfnk"]
+[ext_resource type="Texture2D" uid="uid://cxaiban86siyo" path="res://Assets/Art/UI/credits_normal.png" id="16_higif"]
+[ext_resource type="Texture2D" uid="uid://dnhd8o1bp446r" path="res://Assets/Art/UI/credits_pressed.png" id="17_12dwu"]
+[ext_resource type="Texture2D" uid="uid://dl00aik7lyuq" path="res://Assets/Art/UI/credits_hover.png" id="18_5ahjt"]
+[ext_resource type="Texture2D" uid="uid://cumumvjqtw6o4" path="res://Assets/Art/floor.png" id="19_1h1vi"]
+
+[sub_resource type="SystemFont" id="SystemFont_gxr8g"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_vr64m"]
+default_font = SubResource("SystemFont_gxr8g")
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_8phpd")
+
+[node name="bg" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D13" type="TextureRect" parent="bg"]
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 243.0
+offset_bottom = 127.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_a8j4x")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+offset_left = -26.5
+offset_top = -32.0
+offset_right = 512.5
+offset_bottom = 282.0
+color = Color(0, 0, 0, 0.662745)
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(610, 80)
+scale = Vector2(5, 5)
+texture = ExtResource("2_8dnma")
+hframes = 2
+vframes = 12
+frame = 1
+metadata/_edit_group_ = true
+
+[node name="subTitle" type="Sprite2D" parent="title"]
+position = Vector2(3.66667, 20.3333)
+texture = ExtResource("2_8dnma")
+hframes = 4
+vframes = 12
+frame = 6
+
+[node name="play" type="TextureButton" parent="."]
+offset_left = 70.0
+offset_top = 110.0
+offset_right = 86.0
+offset_bottom = 126.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_vt7x8")
+texture_pressed = ExtResource("4_gd1me")
+texture_hover = ExtResource("5_24now")
+
+[node name="Name" type="RichTextLabel" parent="play"]
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 320.0
+offset_bottom = 78.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_vr64m")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Start"
+
+[node name="controls" type="TextureButton" parent="."]
+offset_left = 70.0
+offset_top = 190.0
+offset_right = 86.0
+offset_bottom = 206.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("6_hs16x")
+texture_pressed = ExtResource("7_kbbqa")
+texture_hover = ExtResource("7_qv01i")
+
+[node name="Name" type="RichTextLabel" parent="controls"]
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 320.0
+offset_bottom = 78.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_vr64m")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "How to"
+
+[node name="achievements" type="TextureButton" parent="."]
+offset_left = 70.0
+offset_top = 270.0
+offset_right = 86.0
+offset_bottom = 286.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("8_y6uqe")
+texture_pressed = ExtResource("9_ojahp")
+texture_hover = ExtResource("10_j2sn7")
+
+[node name="Name" type="RichTextLabel" parent="achievements"]
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 411.0
+offset_bottom = 78.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_vr64m")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Achievements"
+
+[node name="settings" type="TextureButton" parent="."]
+offset_left = 70.0
+offset_top = 350.0
+offset_right = 86.0
+offset_bottom = 366.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("13_4hln2")
+texture_pressed = ExtResource("14_l3hby")
+texture_hover = ExtResource("15_7gfnk")
+
+[node name="Name" type="RichTextLabel" parent="settings"]
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 320.0
+offset_bottom = 78.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_vr64m")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Settings"
+
+[node name="credits" type="TextureButton" parent="."]
+offset_left = 70.0
+offset_top = 430.0
+offset_right = 86.0
+offset_bottom = 446.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("16_higif")
+texture_pressed = ExtResource("17_12dwu")
+texture_hover = ExtResource("18_5ahjt")
+
+[node name="Name" type="RichTextLabel" parent="credits"]
+offset_left = 20.0
+offset_top = 3.0
+offset_right = 320.0
+offset_bottom = 78.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_vr64m")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Credits"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(5, 88)
+metadata/_edit_group_ = true
+
+[node name="top2" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 24)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 2
+
+[node name="mid" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 72)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 3
+
+[node name="bottom" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 120)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 4
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(959, 341)
+rotation = 3.14159
+metadata/_edit_group_ = true
+
+[node name="top2" type="Sprite2D" parent="Node2D2"]
+position = Vector2(0, 24)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 2
+
+[node name="mid" type="Sprite2D" parent="Node2D2"]
+position = Vector2(0, 72)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 3
+
+[node name="bottom" type="Sprite2D" parent="Node2D2"]
+position = Vector2(0, 120)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -240.0
+offset_top = -30.0
+offset_right = 200.0
+offset_bottom = -14.0
+scale = Vector2(3, 3)
+texture = ExtResource("19_1h1vi")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -180.0
+offset_top = 520.0
+offset_right = 260.0
+offset_bottom = 536.0
+scale = Vector2(3, 3)
+texture = ExtResource("19_1h1vi")
+stretch_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(743, 378)
+rotation = 0.253073
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+hframes = 16
+vframes = 12
+frame = 101
+metadata/_edit_group_ = true
+
+[node name="Sprites" type="Node2D" parent="Sprite2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(16, -16)
+rotation = 1.5708
+texture = ExtResource("2_8dnma")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(16, 16)
+texture = ExtResource("2_8dnma")
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(-16, -16)
+texture = ExtResource("2_8dnma")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(-16, 16)
+rotation = 1.5708
+texture = ExtResource("2_8dnma")
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D5" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(-24, 0)
+rotation = 2.35619
+texture = ExtResource("2_8dnma")
+flip_v = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D6" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(24, 0)
+rotation = -3.93572
+texture = ExtResource("2_8dnma")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D7" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(0, 24)
+rotation = 3.92699
+texture = ExtResource("2_8dnma")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D8" type="Sprite2D" parent="Sprite2D/Sprites"]
+position = Vector2(0, -24)
+rotation = 0.785398
+texture = ExtResource("2_8dnma")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(907, 495)
+scale = Vector2(3, 3)
+texture = ExtResource("2_8dnma")
+flip_h = true
+hframes = 16
+vframes = 12
+frame = 70
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="achievements" to="." method="_on_achievements_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

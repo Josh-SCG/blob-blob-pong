@@ -89,11 +89,11 @@ font_names = PackedStringArray("Baskerville Old Face")
 [sub_resource type="Theme" id="Theme_vo2u3"]
 default_font = SubResource("SystemFont_aeg3y")
 
-[sub_resource type="SystemFont" id="SystemFont_4117l"]
+[sub_resource type="SystemFont" id="SystemFont_a4tj6"]
 font_names = PackedStringArray("Baskerville Old Face")
 
 [sub_resource type="Theme" id="Theme_cllud"]
-default_font = SubResource("SystemFont_4117l")
+default_font = SubResource("SystemFont_a4tj6")
 
 [sub_resource type="SystemFont" id="SystemFont_cgrwp"]
 font_names = PackedStringArray("Baskerville Old Face")
@@ -314,6 +314,7 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_sk4k6")
 
 [node name="PongBall" type="CharacterBody2D" parent="."]
+z_index = 1
 position = Vector2(457, 159)
 collision_layer = 10
 collision_mask = 10
@@ -386,6 +387,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = "0"
 
 [node name="player" parent="." instance=ExtResource("2_xmnpl")]
+z_index = 1
 position = Vector2(454, 400)
 
 [node name="spawneR" type="Node2D" parent="."]

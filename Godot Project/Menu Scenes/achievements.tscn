@@ -1,0 +1,277 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmk7nntq1xhff"]
+
+[ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_1o8fb"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_q58on"]
+[ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="3_12tng"]
+[ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="4_hn7hr"]
+[ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="5_krref"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="6_vqxl6"]
+[ext_resource type="Script" path="res://scripts/achieveInfoBox.gd" id="7_jj5lp"]
+
+[sub_resource type="SystemFont" id="SystemFont_b2mg2"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_6qxbr"]
+default_font = SubResource("SystemFont_b2mg2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyx2b"]
+size = Vector2(92, 86)
+
+[node name="achievements" type="Node2D"]
+script = ExtResource("2_q58on")
+
+[node name="bg" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D13" type="TextureRect" parent="bg"]
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 243.0
+offset_bottom = 127.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("1_1o8fb")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+offset_left = -26.5
+offset_top = -32.0
+offset_right = 512.5
+offset_bottom = 282.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.662745)
+
+[node name="menu" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(5, 5)
+mouse_filter = 1
+texture_normal = ExtResource("3_12tng")
+texture_pressed = ExtResource("4_hn7hr")
+texture_hover = ExtResource("5_krref")
+
+[node name="Name" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 340.0
+offset_top = 20.0
+offset_right = 740.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_6qxbr")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Achievements"
+
+[node name="achieveShield" type="Sprite2D" parent="."]
+position = Vector2(80, 180)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 139
+
+[node name="achieveSword" type="Sprite2D" parent="."]
+position = Vector2(80, 280)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 155
+
+[node name="achieveHeart" type="Sprite2D" parent="."]
+position = Vector2(80, 380)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 171
+
+[node name="achieveVictory" type="Sprite2D" parent="."]
+position = Vector2(80, 480)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 187
+
+[node name="achieveInfoBox" type="Node2D" parent="."]
+position = Vector2(539, 301)
+script = ExtResource("7_jj5lp")
+
+[node name="ColorRect" type="ColorRect" parent="achieveInfoBox"]
+offset_left = -301.0
+offset_top = -166.0
+offset_right = 287.0
+offset_bottom = -95.0
+mouse_filter = 2
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="achieveInfoBox"]
+offset_left = -370.0
+offset_top = -85.0
+offset_right = 359.0
+offset_bottom = 195.0
+mouse_filter = 2
+color = Color(1, 0.682353, 0.788235, 1)
+
+[node name="achieveName" type="RichTextLabel" parent="achieveInfoBox"]
+offset_left = -289.0
+offset_top = -159.0
+offset_right = 336.0
+offset_bottom = -93.0
+mouse_filter = 2
+theme = SubResource("Theme_6qxbr")
+theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Here be achievements"
+
+[node name="achieveInfo" type="RichTextLabel" parent="achieveInfoBox"]
+offset_left = -354.0
+offset_top = -74.0
+offset_right = 342.0
+offset_bottom = 176.0
+mouse_filter = 2
+theme = SubResource("Theme_6qxbr")
+theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "This is how you get a specific achievement!"
+
+[node name="Sprite2D" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-281, -144)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 44
+
+[node name="Sprite2D2" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(267, -144)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 47
+
+[node name="Sprite2D5" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-355, -69)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 44
+
+[node name="Sprite2D6" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(342, -69)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 47
+
+[node name="Sprite2D3" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-6.50003, -144)
+scale = Vector2(29.5625, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 45
+
+[node name="Sprite2D4" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-5.00003, -69)
+scale = Vector2(38.75, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 45
+
+[node name="Sprite2D7" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-355, 171)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 60
+
+[node name="Sprite2D9" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-6.00003, 171)
+scale = Vector2(38.625, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 61
+
+[node name="Sprite2D11" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(342, 51)
+rotation = -1.5708
+scale = Vector2(10, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 61
+
+[node name="Sprite2D12" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(-355, 51)
+rotation = 1.5708
+scale = Vector2(10, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 61
+
+[node name="Sprite2D8" type="Sprite2D" parent="achieveInfoBox"]
+position = Vector2(342, 171)
+scale = Vector2(5, 5)
+texture = ExtResource("6_vqxl6")
+hframes = 16
+vframes = 12
+frame = 63
+
+[node name="shieldAchiveBox" type="Area2D" parent="achieveInfoBox"]
+position = Vector2(-460, -120)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="achieveInfoBox/shieldAchiveBox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_tyx2b")
+
+[node name="swordAchiveBox" type="Area2D" parent="achieveInfoBox"]
+position = Vector2(-460, -22)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="achieveInfoBox/swordAchiveBox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_tyx2b")
+
+[node name="heartAchiveBox" type="Area2D" parent="achieveInfoBox"]
+position = Vector2(-460, 78)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="achieveInfoBox/heartAchiveBox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_tyx2b")
+
+[node name="victoryAchiveBox" type="Area2D" parent="achieveInfoBox"]
+position = Vector2(-460, 178)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="achieveInfoBox/victoryAchiveBox"]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_tyx2b")
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="mouse_entered" from="achieveInfoBox/shieldAchiveBox" to="achieveInfoBox" method="_on_shield_achive_box_mouse_entered"]
+[connection signal="mouse_exited" from="achieveInfoBox/shieldAchiveBox" to="achieveInfoBox" method="_on_shield_achive_box_mouse_exited"]
+[connection signal="mouse_entered" from="achieveInfoBox/swordAchiveBox" to="achieveInfoBox" method="_on_sword_achive_box_mouse_entered"]
+[connection signal="mouse_exited" from="achieveInfoBox/swordAchiveBox" to="achieveInfoBox" method="_on_sword_achive_box_mouse_exited"]
+[connection signal="mouse_entered" from="achieveInfoBox/heartAchiveBox" to="achieveInfoBox" method="_on_heart_achive_box_mouse_entered"]
+[connection signal="mouse_exited" from="achieveInfoBox/heartAchiveBox" to="achieveInfoBox" method="_on_heart_achive_box_mouse_exited"]
+[connection signal="mouse_entered" from="achieveInfoBox/victoryAchiveBox" to="achieveInfoBox" method="_on_victory_achive_box_mouse_entered"]
+[connection signal="mouse_exited" from="achieveInfoBox/victoryAchiveBox" to="achieveInfoBox" method="_on_victory_achive_box_mouse_exited"]

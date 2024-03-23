@@ -1,0 +1,218 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1otymx72hsm8"]
+
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_b15dc"]
+[ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="2_27wnd"]
+[ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="3_ydrb5"]
+[ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="4_jf6tp"]
+[ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="5_svgk4"]
+[ext_resource type="Texture2D" uid="uid://d2mex0rui2sgg" path="res://Assets/Art/UI/tilemap_white_packed.png" id="6_hexfg"]
+[ext_resource type="Texture2D" uid="uid://dadek444jv6oq" path="res://Assets/Art/UI/browser_normal.png" id="7_ug2rw"]
+[ext_resource type="Texture2D" uid="uid://d3ryr1e2kscvw" path="res://Assets/Art/UI/browser_pressed.png" id="8_rikh4"]
+[ext_resource type="Texture2D" uid="uid://bd6cormio4ndc" path="res://Assets/Art/UI/browser_hover.png" id="9_sb5by"]
+[ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="10_bkvct"]
+
+[sub_resource type="SystemFont" id="SystemFont_lo0og"]
+font_names = PackedStringArray("Baskerville Old Face")
+
+[sub_resource type="Theme" id="Theme_70167"]
+default_font = SubResource("SystemFont_lo0og")
+
+[node name="credits" type="Node2D"]
+script = ExtResource("1_b15dc")
+
+[node name="bg" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D13" type="TextureRect" parent="bg"]
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 243.0
+offset_bottom = 127.0
+scale = Vector2(2, 2)
+texture = ExtResource("2_27wnd")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+offset_left = -26.5
+offset_top = -32.0
+offset_right = 512.5
+offset_bottom = 282.0
+color = Color(0, 0, 0, 0.662745)
+
+[node name="menu" type="TextureButton" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_ydrb5")
+texture_pressed = ExtResource("4_jf6tp")
+texture_hover = ExtResource("5_svgk4")
+
+[node name="Name" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 370.0
+offset_top = 20.0
+offset_right = 610.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_70167")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 64
+text = "Credits"
+
+[node name="kenny_text" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 260.0
+offset_top = 160.0
+offset_right = 730.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_70167")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "Kenny's 1-Bit Input Prompts Pixel 16×16"
+
+[node name="kenny_eg" type="Node2D" parent="."]
+position = Vector2(130, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(-33, -24)
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 34
+vframes = 24
+frame = 86
+
+[node name="Sprite2D2" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(-50, 11)
+rotation = 0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 34
+vframes = 24
+frame = 77
+
+[node name="Sprite2D3" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(31, -24)
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 34
+vframes = 24
+frame = 53
+
+[node name="Sprite2D4" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(0, 13)
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 34
+vframes = 24
+frame = 166
+
+[node name="Sprite2D5" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(47, 11)
+rotation = -0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 34
+vframes = 24
+frame = 79
+
+[node name="Sprite2D6" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(0, -15)
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 34
+vframes = 24
+frame = 324
+
+[node name="Sprite2D7" type="Sprite2D" parent="kenny_eg"]
+position = Vector2(-3, 42)
+scale = Vector2(2, 2)
+texture = ExtResource("6_hexfg")
+hframes = 11
+vframes = 24
+frame = 76
+
+[node name="kenny_link" type="TextureButton" parent="."]
+offset_left = 800.0
+offset_top = 160.0
+offset_right = 816.0
+offset_bottom = 176.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_ug2rw")
+texture_pressed = ExtResource("8_rikh4")
+texture_hover = ExtResource("9_sb5by")
+
+[node name="me_text" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 260.0
+offset_top = 320.0
+offset_right = 730.0
+offset_bottom = 494.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_70167")
+theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "Josh-SCG (me):
+art, music, programming, creation of old gods, and writing"
+
+[node name="me_eg" type="Node2D" parent="."]
+position = Vector2(130, 400)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="me_eg"]
+position = Vector2(1, -25)
+scale = Vector2(3, 3)
+texture = ExtResource("10_bkvct")
+hframes = 16
+vframes = 12
+frame = 75
+
+[node name="Sprite2D2" type="Sprite2D" parent="me_eg"]
+position = Vector2(29, 11)
+scale = Vector2(3, 3)
+texture = ExtResource("10_bkvct")
+hframes = 16
+vframes = 12
+frame = 66
+
+[node name="Sprite2D3" type="Sprite2D" parent="me_eg"]
+position = Vector2(-44, 9)
+scale = Vector2(3, 3)
+texture = ExtResource("10_bkvct")
+hframes = 16
+vframes = 12
+frame = 101
+
+[node name="me_link" type="TextureButton" parent="."]
+offset_left = 800.0
+offset_top = 350.0
+offset_right = 816.0
+offset_bottom = 366.0
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_ug2rw")
+texture_pressed = ExtResource("8_rikh4")
+texture_hover = ExtResource("9_sb5by")
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="kenny_link" to="." method="_on_kenny_link_pressed"]
+[connection signal="pressed" from="me_link" to="." method="_on_me_link_pressed"]

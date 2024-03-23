@@ -23,7 +23,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func hit_by_bullet():
-	healthBar.size.x -= 20
+	healthBar.size.x -= 12.5
 	
 func hit_by_sword():
 	healthBar.size.x -= 5

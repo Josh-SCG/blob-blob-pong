@@ -13,15 +13,15 @@ func _on_wall_l_body_entered(body):
 	body.direction.x = [1,-1].pick_random()
 	body.direction.y = [1,-1].pick_random()
 	body.position = Vector2(460,220)
-	score_l += 1
-	$"score-L".text = str(score_l)
+	score_r += 1
+	$"score-R".text = str(score_r)
 
 func _on_wall_r_body_entered(body):
 	body.direction.x = [1,-1].pick_random()
 	body.direction.y = [1,-1].pick_random()
 	body.position = Vector2(460,220)
-	score_r += 1
-	$"score-R".text = str(score_r)
+	score_l += 1
+	$"score-L".text = str(score_l)
 
 func _on_left_paddle_body_entered(body):
 	body.direction.x *= -1
