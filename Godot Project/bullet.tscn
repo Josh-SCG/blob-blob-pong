@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmjvcf52otfj0"]
+[gd_scene load_steps=9 format=3 uid="uid://cmjvcf52otfj0"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_0twt3"]
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_aviu7"]
+[ext_resource type="AudioStream" uid="uid://chy41ae3ppjcs" path="res://Assets/Music/bullet_hit.ogg" id="2_o7bfs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xp41x"]
 atlas = ExtResource("2_aviu7")
@@ -41,6 +42,7 @@ scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 12
 script = ExtResource("1_0twt3")
+hit = ExtResource("2_o7bfs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ucrbe")

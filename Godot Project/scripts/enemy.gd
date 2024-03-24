@@ -4,6 +4,8 @@ extends CharacterBody2D
 var dir = "null"
 var can_be_knocked = true
 
+@onready var achieve = get_node("/root/AchievementTracking")
+
 @export var healthPickup : PackedScene = preload("res://health_pickup.tscn")
 @export var bulletPickup : PackedScene = preload("res://bullet_pickup.tscn")
 
@@ -21,6 +23,7 @@ func _ready():
 	
 
 func knockback():
+	achieve.shield_track += 1
 	if dir == "left" && can_be_knocked:
 		can_be_knocked = false
 		$Exclaim.visible = true
@@ -46,10 +49,11 @@ func move():
 func _on_timer_timeout():
 	self.queue_free()
 
-func kill():
-	#play death sound
-	#if killed by player
-		#30% chance to spawn health pick-up
+func kill(source):
+	if source == "Player":
+		achieve.sword_track += 1
+		achieve.heart_check = false
+		achieve.number_of_minions += 1
 	speed = 0
 	$CollisionShape2D.set_deferred("disabled", true)
 	$enemyCollider/CollisionShape2D.set_deferred("disabled", true)

@@ -21,6 +21,12 @@ boot_splash/use_filter=false
 config/icon="res://Assets/Art/ico.ico"
 boot_splash/minimum_display_time=3000
 
+[autoload]
+
+AchievementTracking="*res://scripts/achievement_tracking.gd"
+AudioManager="*res://Menu Scenes/audioManager.tscn"
+Sfx="*res://Menu Scenes/sfx.tscn"
+
 [display]
 
 window/size/viewport_width=960

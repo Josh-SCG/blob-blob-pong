@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx8ndcx54gcdv"]
+[gd_scene load_steps=5 format=3 uid="uid://cx8ndcx54gcdv"]
 
 [ext_resource type="Script" path="res://scripts/sword.gd" id="1_cot5g"]
+[ext_resource type="AudioStream" uid="uid://b3s3cmenhn0iy" path="res://Assets/Music/sword_hit.ogg" id="2_ahrl8"]
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="2_ura1j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bio7y"]
@@ -12,6 +13,7 @@ collision_layer = 5
 collision_mask = 13
 collision_priority = 3.0
 script = ExtResource("1_cot5g")
+knock = ExtResource("2_ahrl8")
 
 [node name="Sprites" type="Node2D" parent="."]
 

@@ -20,11 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://dl00aik7lyuq" path="res://Assets/Art/UI/credits_hover.png" id="18_5ahjt"]
 [ext_resource type="Texture2D" uid="uid://cumumvjqtw6o4" path="res://Assets/Art/floor.png" id="19_1h1vi"]
 
-[sub_resource type="SystemFont" id="SystemFont_gxr8g"]
+[sub_resource type="SystemFont" id="SystemFont_smev1"]
 font_names = PackedStringArray("Baskerville Old Face")
 
 [sub_resource type="Theme" id="Theme_vr64m"]
-default_font = SubResource("SystemFont_gxr8g")
+default_font = SubResource("SystemFont_smev1")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8phpd")
@@ -75,6 +75,7 @@ texture_pressed = ExtResource("4_gd1me")
 texture_hover = ExtResource("5_24now")
 
 [node name="Name" type="RichTextLabel" parent="play"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 3.0
 offset_right = 320.0
@@ -96,6 +97,7 @@ texture_pressed = ExtResource("7_kbbqa")
 texture_hover = ExtResource("7_qv01i")
 
 [node name="Name" type="RichTextLabel" parent="controls"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 3.0
 offset_right = 320.0
@@ -117,6 +119,7 @@ texture_pressed = ExtResource("9_ojahp")
 texture_hover = ExtResource("10_j2sn7")
 
 [node name="Name" type="RichTextLabel" parent="achievements"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 3.0
 offset_right = 411.0
@@ -138,6 +141,7 @@ texture_pressed = ExtResource("14_l3hby")
 texture_hover = ExtResource("15_7gfnk")
 
 [node name="Name" type="RichTextLabel" parent="settings"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 3.0
 offset_right = 320.0
@@ -159,6 +163,7 @@ texture_pressed = ExtResource("17_12dwu")
 texture_hover = ExtResource("18_5ahjt")
 
 [node name="Name" type="RichTextLabel" parent="credits"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 3.0
 offset_right = 320.0

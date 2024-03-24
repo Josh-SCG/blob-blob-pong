@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh16ftr5kdhw7"]
+[gd_scene load_steps=13 format=3 uid="uid://dh16ftr5kdhw7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6mkry"]
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="1_pb03c"]
+[ext_resource type="PackedScene" uid="uid://bu43m4q3onwir" path="res://Menu Scenes/pause.tscn" id="2_h0y1p"]
+[ext_resource type="AudioStream" uid="uid://d3a7c3v3015hj" path="res://Assets/Music/blob_jump.ogg" id="2_yd8tf"]
+[ext_resource type="AudioStream" uid="uid://cisvw7udd2ya4" path="res://Assets/Music/player_hit.ogg" id="3_kblt0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hxkny"]
 radius = 7.07107
@@ -117,6 +120,9 @@ scale = Vector2(2, 2)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_6mkry")
+jump = ExtResource("2_yd8tf")
+hurt = ExtResource("3_kblt0")
+PausePopUp = ExtResource("2_h0y1p")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_pb03c")
@@ -150,8 +156,12 @@ wait_time = 8.0
 wait_time = 8.0
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
+
+[node name="canShootTimer" type="Timer" parent="."]
+wait_time = 0.2
 
 [connection signal="timeout" from="SwordSkillTimer" to="." method="_on_sword_skill_timer_timeout"]
 [connection signal="timeout" from="ShieldTimer" to="." method="_on_shield_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="canShootTimer" to="." method="_on_can_shoot_timer_timeout"]

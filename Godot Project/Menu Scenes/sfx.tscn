@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7dte11ai86rm"]
+
+[ext_resource type="Script" path="res://scripts/sfx.gd" id="1_wo78k"]
+
+[node name="sfx" type="AudioStreamPlayer"]
+autoplay = true
+bus = &"sfx"
+script = ExtResource("1_wo78k")

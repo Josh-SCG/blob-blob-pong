@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var achieve = get_node("/root/AchievementTracking")
 
 const SPEED = 150
 var direction = Vector2.ZERO
@@ -23,13 +24,20 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func hit_by_bullet():
-	healthBar.size.x -= 12.5
+	healthBar.size.x -= 20
+	kill()
 	
 func hit_by_sword():
 	healthBar.size.x -= 5
+	kill()
+
+func kill():
+	if healthBar.size.x <= 0:
+		achieve.results_check_win = true
+		get_tree().change_scene_to_file.bind("res://Menu Scenes/results.tscn").call_deferred()
 
 func _on_character_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
 		body.hit_by_ball()
 	elif body.is_in_group("Enemy"):
-		body.kill()
+		body.kill("Pong")

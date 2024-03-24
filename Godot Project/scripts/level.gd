@@ -1,7 +1,11 @@
 extends Node2D
 
+@onready var achieve = get_node("/root/AchievementTracking")
 var score_l = 0
 var score_r = 0
+
+func _ready():
+	achieve.heart_check = true
 
 func _on_floor_body_entered(body):
 	body.direction.y *= -1

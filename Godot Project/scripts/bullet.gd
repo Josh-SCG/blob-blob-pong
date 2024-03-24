@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var sfxRef = get_node("/root/Sfx")
+@export var hit: AudioStream
+
 var speed = 200
 var turn_force = 200
 
@@ -28,14 +31,11 @@ func _physics_process(delta):
 	rotation = velocity.angle()
 	position += velocity * delta
 
-	
-
-
 func _on_timer_timeout():
 	queue_free()
 
-
 func _on_bullet_area_2d_body_entered(body):
 	if body.is_in_group("Ball"):
+		sfxRef.sfxAudio(hit)
 		body.hit_by_bullet()
 		queue_free()

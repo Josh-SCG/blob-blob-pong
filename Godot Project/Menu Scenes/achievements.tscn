@@ -1,24 +1,24 @@
 [gd_scene load_steps=11 format=3 uid="uid://bmk7nntq1xhff"]
 
 [ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_1o8fb"]
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_q58on"]
+[ext_resource type="Script" path="res://scripts/achievements.gd" id="1_natgl"]
 [ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="3_12tng"]
 [ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="4_hn7hr"]
 [ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="5_krref"]
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="6_vqxl6"]
 [ext_resource type="Script" path="res://scripts/achieveInfoBox.gd" id="7_jj5lp"]
 
-[sub_resource type="SystemFont" id="SystemFont_b2mg2"]
+[sub_resource type="SystemFont" id="SystemFont_bqcgy"]
 font_names = PackedStringArray("Baskerville Old Face")
 
 [sub_resource type="Theme" id="Theme_6qxbr"]
-default_font = SubResource("SystemFont_b2mg2")
+default_font = SubResource("SystemFont_bqcgy")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyx2b"]
 size = Vector2(92, 86)
 
 [node name="achievements" type="Node2D"]
-script = ExtResource("2_q58on")
+script = ExtResource("1_natgl")
 
 [node name="bg" type="Node2D" parent="."]
 scale = Vector2(2, 2)

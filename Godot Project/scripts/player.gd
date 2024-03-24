@@ -16,6 +16,11 @@ var health = 3
 var max_bullets = 5
 var bullets = 5
 
+@onready var sfxRef = get_node("/root/Sfx")
+@export var jump: AudioStream
+@export var hurt: AudioStream
+
+@onready var achieve = get_node("/root/AchievementTracking")
 @onready var animation = $AnimationPlayer
 @onready var heart_1 = get_node("../playerHealth/heart1")
 @onready var heart_2 = get_node("../playerHealth/heart2")
@@ -38,8 +43,12 @@ var bullets = 5
 
 var movementVector = Vector2.ZERO
 
+@export var PausePopUp:PackedScene
+var popUp = null
+
 func _ready():
 	add_to_group("Player")
+	#achieve.time_start = Time.get_unix_time_from_system()
 	swordUI.frame = 75
 	swordUIText.visible = false
 	shieldUI.frame = 59
@@ -54,13 +63,23 @@ func _ready():
 	bullet_3.frame = 82
 	bullet_4.frame = 82
 	bullet_5.frame = 82
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _physics_process(_delta):
 	movement()
 	#camera_zoom()
+	pauseGame()
 	attacks()
 	swordUIText.text = str(snapped($SwordSkillTimer.time_left, 0.1))
 	shieldUIText.text = str(snapped($ShieldTimer.time_left, 0.1))
+
+func pauseGame():
+	if Input.is_action_just_pressed("pause"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		popUp = PausePopUp.instantiate()
+		add_child(popUp)
+		get_tree().paused = true
 
 func camera_zoom():
 	if Input.is_action_just_pressed("scroll_in"):
@@ -86,6 +105,7 @@ func movement():
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("up"):
+			sfxRef.sfxAudio(jump)
 			is_jumping = true
 			velocity.y = -JUMP_FORCE
 	
@@ -110,6 +130,7 @@ func animSwitch():
 
 func attacks():
 	if Input.is_action_just_pressed("sword") && can_sword:
+		achieve.number_of_swords += 1
 		can_sword = false
 		var swords_in_action = swords.instantiate()
 		add_child(swords_in_action)
@@ -119,6 +140,7 @@ func attacks():
 		swordUIText.text = str($SwordSkillTimer.time_left)
 	
 	if Input.is_action_just_pressed("shield") && can_shield:
+		achieve.number_of_shields += 1
 		can_shield = false
 		var shield_in_action = shield.instantiate()
 		add_child(shield_in_action)
@@ -127,11 +149,14 @@ func attacks():
 		shieldUIText.visible = true
 		shieldUIText.text = str($ShieldTimer.time_left)
 	
-	if Input.is_action_just_pressed("shoot") && bullets > 0:
+	if Input.is_action_just_pressed("shoot") && bullets > 0 && can_shoot:
+		achieve.number_of_shots += 1
+		can_shoot = false
 		var bullet_in_action = bullet.instantiate()
 		bullet_in_action.start(get_node("../PongBall"), (position + Vector2(0,-32)))
 		get_parent().add_child(bullet_in_action)
 		$ShootTimer.start()
+		$canShootTimer.start()
 		
 		bullets -= 1
 		if bullets == 0:
@@ -167,9 +192,10 @@ func attacks():
 
 func hit_by_enemy():
 	if health == 1:
-		print("killshot")
 		is_jumping = true
 		velocity.y = -1.33*JUMP_FORCE
+		sfxRef.sfxAudio(hurt)
+		get_tree().change_scene_to_file.bind("res://Menu Scenes/results.tscn").call_deferred()
 	elif health == 2:
 		health -= 1
 		is_jumping = true
@@ -184,20 +210,12 @@ func hit_by_enemy():
 		heart_1.frame = 42
 		heart_2.frame = 42
 		heart_3.frame = 41
-	#check for lives
-	#if last life taken:
-		#timer for x second
-		#play death sound
-		#lock control
-		#change to results screen
-	#else 
-		#remove one life
-		#bounce player up
-	
+	sfxRef.sfxAudio(hurt)
 
 func hit_by_ball():
 	if health == 1:
-		print("killshot")
+		sfxRef.sfxAudio(hurt)
+		get_tree().change_scene_to_file.bind("res://Menu Scenes/results.tscn").call_deferred()
 	elif health == 2:
 		health -= 1
 		heart_1.frame = 42
@@ -208,13 +226,7 @@ func hit_by_ball():
 		heart_1.frame = 42
 		heart_2.frame = 42
 		heart_3.frame = 41
-	#check for lives
-	#if last life taken:
-		#timer for x second
-		#play death sound
-		#lock control
-		#change to results screen
-	#else remove one life
+	sfxRef.sfxAudio(hurt)
 
 func heals():
 	if health != max_health:
@@ -260,7 +272,6 @@ func reload():
 			bullet_3.frame = 82
 			bullet_4.frame = 82
 			bullet_5.frame = 82
-		
 
 func _on_sword_skill_timer_timeout():
 	can_sword = true
@@ -305,3 +316,7 @@ func _on_shoot_timer_timeout():
 			bullet_3.frame = 82
 			bullet_4.frame = 82
 			bullet_5.frame = 82
+
+
+func _on_can_shoot_timer_timeout():
+	can_shoot = true
