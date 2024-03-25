@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1otymx72hsm8"]
+[gd_scene load_steps=12 format=3 uid="uid://b1otymx72hsm8"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_b15dc"]
 [ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="2_27wnd"]
@@ -6,16 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="4_jf6tp"]
 [ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="5_svgk4"]
 [ext_resource type="Texture2D" uid="uid://d2mex0rui2sgg" path="res://Assets/Art/UI/tilemap_white_packed.png" id="6_hexfg"]
+[ext_resource type="FontFile" uid="uid://b67ys68h8t2y7" path="res://Assets/Art/UI/BASKVILL.ttf" id="6_jfbw8"]
 [ext_resource type="Texture2D" uid="uid://dadek444jv6oq" path="res://Assets/Art/UI/browser_normal.png" id="7_ug2rw"]
 [ext_resource type="Texture2D" uid="uid://d3ryr1e2kscvw" path="res://Assets/Art/UI/browser_pressed.png" id="8_rikh4"]
 [ext_resource type="Texture2D" uid="uid://bd6cormio4ndc" path="res://Assets/Art/UI/browser_hover.png" id="9_sb5by"]
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="10_bkvct"]
-
-[sub_resource type="SystemFont" id="SystemFont_lo0og"]
-font_names = PackedStringArray("Baskerville Old Face")
-
-[sub_resource type="Theme" id="Theme_70167"]
-default_font = SubResource("SystemFont_lo0og")
 
 [node name="credits" type="Node2D"]
 script = ExtResource("1_b15dc")
@@ -62,8 +57,8 @@ offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_70167")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("6_jfbw8")
 theme_override_font_sizes/normal_font_size = 64
 text = "Credits"
 
@@ -80,8 +75,8 @@ offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_70167")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("6_jfbw8")
 theme_override_font_sizes/normal_font_size = 40
 text = "Kenny's 1-Bit Input Prompts Pixel 16×16"
 
@@ -169,8 +164,8 @@ offset_bottom = 494.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_70167")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("6_jfbw8")
 theme_override_font_sizes/normal_font_size = 40
 text = "Josh-SCG (me):
 art, music, programming, creation of old gods, and writing"

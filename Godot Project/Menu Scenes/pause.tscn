@@ -1,24 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bu43m4q3onwir"]
+[gd_scene load_steps=9 format=3 uid="uid://bu43m4q3onwir"]
 
 [ext_resource type="Texture2D" uid="uid://3gjatyootgqj" path="res://Assets/Art/UI/play_normal.png" id="1_48hta"]
 [ext_resource type="Script" path="res://scripts/pause.gd" id="1_bdgk1"]
 [ext_resource type="Texture2D" uid="uid://bd3rr4vjod1he" path="res://Assets/Art/UI/play_pressed.png" id="2_1120k"]
+[ext_resource type="FontFile" uid="uid://b67ys68h8t2y7" path="res://Assets/Art/UI/BASKVILL.ttf" id="2_xt3um"]
 [ext_resource type="Texture2D" uid="uid://ytvb0bdm4ouq" path="res://Assets/Art/UI/play_hover.png" id="3_2fxvu"]
 [ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="4_25tar"]
 [ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="5_m265q"]
 [ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="6_oyagb"]
-
-[sub_resource type="SystemFont" id="SystemFont_gxr8g"]
-font_names = PackedStringArray("Baskerville Old Face")
-
-[sub_resource type="Theme" id="Theme_0j4wf"]
-default_font = SubResource("SystemFont_gxr8g")
-
-[sub_resource type="SystemFont" id="SystemFont_t3dn8"]
-font_names = PackedStringArray("Baskerville Old Face")
-
-[sub_resource type="Theme" id="Theme_x1q7y"]
-default_font = SubResource("SystemFont_t3dn8")
 
 [node name="pause" type="CanvasLayer"]
 process_mode = 2
@@ -41,8 +30,8 @@ offset_top = 120.0
 offset_right = 670.0
 offset_bottom = 255.0
 mouse_filter = 2
-theme = SubResource("Theme_0j4wf")
 theme_override_colors/default_color = Color(0.0666667, 0.0156863, 0.27451, 1)
+theme_override_fonts/normal_font = ExtResource("2_xt3um")
 theme_override_font_sizes/normal_font_size = 128
 text = "Paused"
 
@@ -64,8 +53,8 @@ offset_right = 320.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
 mouse_filter = 2
-theme = SubResource("Theme_x1q7y")
 theme_override_colors/default_color = Color(0.054902, 0.0156863, 0.27451, 1)
+theme_override_fonts/normal_font = ExtResource("2_xt3um")
 theme_override_font_sizes/normal_font_size = 64
 text = "Continue"
 
@@ -87,8 +76,8 @@ offset_right = 460.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
 mouse_filter = 2
-theme = SubResource("Theme_x1q7y")
 theme_override_colors/default_color = Color(0.054902, 0.0156863, 0.27451, 1)
+theme_override_fonts/normal_font = ExtResource("2_xt3um")
 theme_override_font_sizes/normal_font_size = 64
 text = "Return to Menu"
 

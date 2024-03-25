@@ -1,18 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://br77314sdfrha"]
+[gd_scene load_steps=16 format=3 uid="uid://br77314sdfrha"]
 
 [ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_n2r65"]
 [ext_resource type="Script" path="res://scripts/results.gd" id="1_n7pd1"]
 [ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="2_wn5c0"]
 [ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="3_n45d0"]
+[ext_resource type="FontFile" uid="uid://b67ys68h8t2y7" path="res://Assets/Art/UI/BASKVILL.ttf" id="3_ummi7"]
 [ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="4_riyvl"]
 [ext_resource type="Texture2D" uid="uid://cumumvjqtw6o4" path="res://Assets/Art/floor.png" id="6_yy5h0"]
 [ext_resource type="Texture2D" uid="uid://dw1yahhrg2oip" path="res://Assets/Art/spriteSheet.png" id="7_h1047"]
-
-[sub_resource type="SystemFont" id="SystemFont_4j6at"]
-font_names = PackedStringArray("Baskerville Old Face")
-
-[sub_resource type="Theme" id="Theme_eru1h"]
-default_font = SubResource("SystemFont_4j6at")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrv8n"]
 atlas = ExtResource("7_h1047")
@@ -99,8 +94,8 @@ offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 64
 text = "Results"
 
@@ -147,8 +142,8 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 64
 text = "You Died"
 
@@ -184,8 +179,8 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 64
 text = "Pong has been slain!"
 
@@ -202,8 +197,8 @@ offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "Minions Slain:
 "
@@ -221,8 +216,8 @@ offset_bottom = -230.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "Bullets Used:"
 
@@ -239,8 +234,8 @@ offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "Swords Activated:"
 
@@ -257,8 +252,8 @@ offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "Shield Activated:"
 
@@ -275,8 +270,8 @@ offset_bottom = -280.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "0
 "
@@ -294,8 +289,8 @@ offset_bottom = -230.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "0"
 
@@ -312,8 +307,8 @@ offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "0"
 
@@ -330,8 +325,8 @@ offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_eru1h")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("3_ummi7")
 theme_override_font_sizes/normal_font_size = 48
 text = "0"
 

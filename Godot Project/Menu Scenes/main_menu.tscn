@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bicaatidq84q2"]
+[gd_scene load_steps=21 format=3 uid="uid://bicaatidq84q2"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_8phpd"]
 [ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_a8j4x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bd3rr4vjod1he" path="res://Assets/Art/UI/play_pressed.png" id="4_gd1me"]
 [ext_resource type="Texture2D" uid="uid://ytvb0bdm4ouq" path="res://Assets/Art/UI/play_hover.png" id="5_24now"]
 [ext_resource type="Texture2D" uid="uid://yvd1idoi8w7k" path="res://Assets/Art/UI/howTo_normal.png" id="6_hs16x"]
+[ext_resource type="FontFile" uid="uid://b67ys68h8t2y7" path="res://Assets/Art/UI/BASKVILL.ttf" id="7_5181b"]
 [ext_resource type="Texture2D" uid="uid://cym4425ad7vay" path="res://Assets/Art/UI/howTo_pressed.png" id="7_kbbqa"]
 [ext_resource type="Texture2D" uid="uid://dklj4t275186k" path="res://Assets/Art/UI/howTo_hover.png" id="7_qv01i"]
 [ext_resource type="Texture2D" uid="uid://d2qop2qc4nrss" path="res://Assets/Art/UI/achieve_normal.png" id="8_y6uqe"]
@@ -19,12 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dnhd8o1bp446r" path="res://Assets/Art/UI/credits_pressed.png" id="17_12dwu"]
 [ext_resource type="Texture2D" uid="uid://dl00aik7lyuq" path="res://Assets/Art/UI/credits_hover.png" id="18_5ahjt"]
 [ext_resource type="Texture2D" uid="uid://cumumvjqtw6o4" path="res://Assets/Art/floor.png" id="19_1h1vi"]
-
-[sub_resource type="SystemFont" id="SystemFont_smev1"]
-font_names = PackedStringArray("Baskerville Old Face")
-
-[sub_resource type="Theme" id="Theme_vr64m"]
-default_font = SubResource("SystemFont_smev1")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_8phpd")
@@ -81,8 +76,8 @@ offset_top = 3.0
 offset_right = 320.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
-theme = SubResource("Theme_vr64m")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("7_5181b")
 theme_override_font_sizes/normal_font_size = 64
 text = "Start"
 
@@ -103,8 +98,8 @@ offset_top = 3.0
 offset_right = 320.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
-theme = SubResource("Theme_vr64m")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("7_5181b")
 theme_override_font_sizes/normal_font_size = 64
 text = "How to"
 
@@ -125,8 +120,8 @@ offset_top = 3.0
 offset_right = 411.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
-theme = SubResource("Theme_vr64m")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("7_5181b")
 theme_override_font_sizes/normal_font_size = 64
 text = "Achievements"
 
@@ -147,8 +142,8 @@ offset_top = 3.0
 offset_right = 320.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
-theme = SubResource("Theme_vr64m")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("7_5181b")
 theme_override_font_sizes/normal_font_size = 64
 text = "Settings"
 
@@ -169,8 +164,8 @@ offset_top = 3.0
 offset_right = 320.0
 offset_bottom = 78.0
 scale = Vector2(0.2, 0.2)
-theme = SubResource("Theme_vr64m")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("7_5181b")
 theme_override_font_sizes/normal_font_size = 64
 text = "Credits"
 

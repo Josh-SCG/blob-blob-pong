@@ -1,22 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://xdmxwk8c478q"]
+[gd_scene load_steps=12 format=3 uid="uid://xdmxwk8c478q"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_6hxgu"]
 [ext_resource type="Texture2D" uid="uid://bi8a3yd6086xq" path="res://Assets/Art/bricks.png" id="1_ddlgk"]
 [ext_resource type="AudioStream" uid="uid://d3a7c3v3015hj" path="res://Assets/Music/blob_jump.ogg" id="2_yid0b"]
 [ext_resource type="Texture2D" uid="uid://d1jiw8dvfctvp" path="res://Assets/Art/UI/cross_normal.png" id="3_yba1y"]
+[ext_resource type="FontFile" uid="uid://b67ys68h8t2y7" path="res://Assets/Art/UI/BASKVILL.ttf" id="4_0vcyf"]
 [ext_resource type="Texture2D" uid="uid://nrnaspqtjbw0" path="res://Assets/Art/UI/cross_pressed.png" id="4_n317s"]
 [ext_resource type="Texture2D" uid="uid://bfh0gjhtqaixb" path="res://Assets/Art/UI/cross_hover.png" id="5_5b0pu"]
 [ext_resource type="Texture2D" uid="uid://bkbh2lj7adhsi" path="res://Assets/Art/UI/blob.png" id="6_s4pa3"]
 [ext_resource type="Texture2D" uid="uid://3gjatyootgqj" path="res://Assets/Art/UI/play_normal.png" id="7_rbwqc"]
 [ext_resource type="Texture2D" uid="uid://bd3rr4vjod1he" path="res://Assets/Art/UI/play_pressed.png" id="8_iv8y5"]
 [ext_resource type="Texture2D" uid="uid://ytvb0bdm4ouq" path="res://Assets/Art/UI/play_hover.png" id="9_6yeal"]
-
-[sub_resource type="SystemFont" id="SystemFont_673hr"]
-font_names = PackedStringArray("Baskerville Old Face")
-subpixel_positioning = 0
-
-[sub_resource type="Theme" id="Theme_njsef"]
-default_font = SubResource("SystemFont_673hr")
 
 [node name="settings" type="Node2D"]
 script = ExtResource("1_6hxgu")
@@ -56,8 +50,8 @@ offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_njsef")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("4_0vcyf")
 theme_override_font_sizes/normal_font_size = 64
 text = "Settings"
 
@@ -74,8 +68,8 @@ offset_bottom = 265.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_njsef")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("4_0vcyf")
 theme_override_font_sizes/normal_font_size = 64
 text = "Music"
 
@@ -106,8 +100,8 @@ offset_bottom = 415.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_njsef")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("4_0vcyf")
 theme_override_font_sizes/normal_font_size = 64
 text = "SFX"
 
@@ -158,8 +152,8 @@ offset_bottom = 513.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_njsef")
 theme_override_colors/default_color = Color(1, 0.682353, 0.788235, 1)
+theme_override_fonts/normal_font = ExtResource("4_0vcyf")
 theme_override_font_sizes/normal_font_size = 32
 text = "Test SFX Volume"
 
